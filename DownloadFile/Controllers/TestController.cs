@@ -62,6 +62,16 @@ namespace DownloadFile.Controllers
 
         //    return result;
         //}
+        [HttpGet("api/downloadfile")]
+        public FileResult TestDownload()
+        {
+            FileContentResult result = new FileContentResult(System.IO.File.ReadAllBytes(@"C:\Users\DEVing\Desktop\doc.pdf"), "application/pdf")
+            {
+                FileDownloadName = "doc.pdf"
+            };
+
+            return result;
+        }
         [HttpGet("api/filealternative/{id}")]
         public IActionResult GetFileAlternative(int id)
         {
